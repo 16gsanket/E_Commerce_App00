@@ -1,10 +1,13 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./Features/app/store";
 import AppLayout from "./ui/AppLayout";
 import SignIn from "./Pages/SignIn";
 import Error from "./ui/Error";
 import { SidebarProvider } from "./context/SidebarProvider ";
 import Home from "./Pages/Home";
 import Product from "./Pages/Product";
+import Cart from "./Pages/Cart";
 
 const router = createBrowserRouter([
   {
@@ -17,12 +20,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/home",
-        element: <Home />
+        element: <Home />,
       },
       {
-        path:"/product/:productId",
-        element:<Product />,
-      }
+        path: "/product/:productId",
+        element: <Product />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
       // {
       //   path: "/order/:orderId",
       //   element: <Order />,
@@ -52,7 +59,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <SidebarProvider>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </SidebarProvider>
   );
 }
