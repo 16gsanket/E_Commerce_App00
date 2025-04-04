@@ -17,7 +17,7 @@ function CartOverview() {
       <p className="space-x-6 font-semibold text-stone-300 sm:space-x-5">
         {/* <span>{totalCartQuantity} Items</span> */}
         <span>{cart_length} Items</span>
-        <span>${totalPrice}</span>
+        <span>${totalPrice.toFixed(2)}</span>
         {/* <span>$25</span> */}
       </p>
       <Link to="/cart">Open cart &rarr;</Link>

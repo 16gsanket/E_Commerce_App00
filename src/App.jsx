@@ -8,6 +8,12 @@ import { SidebarProvider } from "./context/SidebarProvider ";
 import Home from "./Pages/Home";
 import Product from "./Pages/Product";
 import Cart from "./Pages/Cart";
+import { FilterContextProvider } from "./context/FilterContextProvider";
+import CreateOrder from "./Pages/CreateOrder";
+import OrderPlaced from "./Pages/OrderPlaced";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Privacy from "./Pages/Privacy";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +36,26 @@ const router = createBrowserRouter([
         path: "/cart",
         element: <Cart />,
       },
+      {
+        path: "/order/new",
+        element: <CreateOrder />
+      },
+      {
+        path:'/order-placed',
+        element:<OrderPlaced />
+      },
+      {
+        path:'/about',
+        element:<About />
+      },
+      {
+        path:'/contact',
+        element:<Contact />
+      },
+      {
+        path:'/privacy',
+        element:<Privacy />
+      }
       // {
       //   path: "/order/:orderId",
       //   element: <Order />,
@@ -47,11 +73,6 @@ const router = createBrowserRouter([
       //   path: "/cart",
       //   element: <Cart />,
       // },
-      // {
-      //   path: "/order/new",
-      //   element: <CreateOrder />,
-      //   action:CreateOrderAction
-      // },
     ],
   },
 ]);
@@ -59,9 +80,11 @@ const router = createBrowserRouter([
 function App() {
   return (
     <SidebarProvider>
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
+      <FilterContextProvider>
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>
+      </FilterContextProvider>
     </SidebarProvider>
   );
 }

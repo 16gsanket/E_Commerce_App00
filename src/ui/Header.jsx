@@ -16,7 +16,7 @@ function Header() {
       <Link to="/" className="tracking-widest">
         E-Commerce Co.
       </Link>
-      <IoMdCart onClick={() => navigate('/cart')}/>
+      <IoMdCart onClick={() => navigate('/cart') } className='text-2xl text-stone-800 hover:text-slate-700'/>
       {/* <SearchOrder /> */}
     <Username />
     </header>

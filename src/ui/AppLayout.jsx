@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import Sidebar from "../Components/Sidebar";
 import CartOverview from "./CartOverview";
 import { useSelector } from "react-redux";
+import Footer from "../Pages/Footer";
 
 function AppLayout() {
   const navigation = useNavigation();
@@ -18,11 +19,13 @@ function AppLayout() {
         {/* {true && <Loader />} */}
         <Header />
 
-        <div className="overflow-auto">
-          <main className=" h-[91dvh] w-full overflow-x-hidden">
+        <div className="overflow-hidden">
+          <main className=" h-[91dvh] w-full overflow-x-hidden  mb-10">
             <Outlet />
+            <Footer />
           </main>
         </div>
+
 
         {cart_length > 0 && <CartOverview />}
       </div>

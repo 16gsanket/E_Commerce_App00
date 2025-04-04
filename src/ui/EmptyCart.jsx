@@ -3,7 +3,7 @@ import LinkButton from './LinkButton';
 
 function EmptyCart() {
   return (
-    <div className="px-4 py-3">
+    <div className="px-4 py-3 h-[90%]">
       {/* <Link to="/menu">&larr; Back to menu</Link> */}
       <LinkButton to="/home">&larr; Back to menu</LinkButton>
 
